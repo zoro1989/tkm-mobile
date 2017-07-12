@@ -1,13 +1,13 @@
 <template>
-    <div id="login">
-        <text class="fs50">登录</text>
-        <div class="m50">
-            <input class="m10 p10" type="text" value="" v-model="form.email" placeholder="请输入账号"/>
-            <input class="m10 p10" type="password" value="" v-model="form.pswd" placeholder="请输入密码"/>
+    <div class="login">
+        <text class="title">登录</text>
+        <div class="content">
+            <input class="input" type="text" value="" v-model="form.mobile" placeholder="请输入手机号码"/>
+            <input class="input" type="password" value="" v-model="form.pswd" placeholder="请输入密码"/>
         </div>
         <div class="button-group">
-            <button class="pt10 pb10 pl20 pr20 m10 fs40" @click="onSubmit">登录</button>
-            <button class="pt10 pb10 pl20 pr20 m10 fs40" @click="onRegister">注册</button>
+            <text class="button-item" @click="onSubmit">登录</text>
+            <text class="button-item" @click="onRegister">注册</text>
         </div>
     </div>
 </template>
@@ -17,8 +17,9 @@
         data () {
             return {
                 form: {
-                    email: '',
-                    pswd: ''
+                    mobile: '',
+                    pswd: '',
+                    rememberMe: false
                 }
             }
         },
@@ -40,12 +41,34 @@
     }
 </script>
 <style scoped>
-    #login{
+    .login{
         margin: 0 auto;
         justify-content:center;
         align-items:center;
     }
-    #login .button-group{
+    .title{
+        font-size: 50px;
+    }
+    .content{
+        margin: 50px;
+    }
+    .input{
+        width: 700px;
+        height: 80px;
+        margin: 10px;
+        padding: 10px;
+    }
+    .button-item{
+        padding: 10px 20px;
+        margin: 10px;
+        font-size: 40px;
+        width: 200px;
+        height: 100px;
+        background-color: #ffebcd;
+        text-align: center;
+        line-height: 80px;
+    }
+    .button-group{
         flex-direction:row;
         justify-content:space-around;
     }

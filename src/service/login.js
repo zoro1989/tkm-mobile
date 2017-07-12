@@ -7,10 +7,9 @@ export default {
       formData += '&' + item + '=' + params.form[item]
     }
     formData = formData.substring(1, formData.length)
-      debugger
     function makeData (originalData) {
       return originalData
     }
-    httpHandler.post.bind(this)(uris.user.submitLogin, formData, success, fail, makeData)
+    httpHandler.post.bind(this)(uris.api.mobileLogin, formData, success, fail, makeData)
   }
 }
