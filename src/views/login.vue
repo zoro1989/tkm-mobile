@@ -1,22 +1,13 @@
 <template>
     <div id="login">
-        <h1>登录</h1>
-        <div>
-            <text class="label">用户名</text>
-            <input class="input" type="text" value="" v-model="form.email" placeholder="请输入账号"/>
+        <text class="fs50">登录</text>
+        <div class="m50">
+            <input class="m10 p10" type="text" value="" v-model="form.email" placeholder="请输入账号"/>
+            <input class="m10 p10" type="password" value="" v-model="form.pswd" placeholder="请输入密码"/>
         </div>
-        <div>
-            <text class="label">密码</text>
-            <input class="input" type="password" value="" v-model="form.pswd" placeholder="请输入密码"/>
-        </div>
-
-        <div class="rememberMe">
-            <text class="label">记住我</text>
-            <switch checked="true" v-model="isRememberMe" ></switch>
-        </div>
-        <div>
-            <button @click="onSubmit">登录</button>
-            <button @click="onRegister">注册</button>
+        <div class="button-group">
+            <button class="pt10 pb10 pl20 pr20 m10 fs40" @click="onSubmit">登录</button>
+            <button class="pt10 pb10 pl20 pr20 m10 fs40" @click="onRegister">注册</button>
         </div>
     </div>
 </template>
@@ -27,19 +18,12 @@
             return {
                 form: {
                     email: '',
-                    pswd: '',
-                    rememberMe: ''
-                },
-                isRememberMe: []
+                    pswd: ''
+                }
             }
         },
         methods: {
             onSubmit () {
-                if (this.isRememberMe.length > 0) {
-                    this.form.rememberMe = true
-                } else {
-                    this.form.rememberMe = false
-                }
                 login.submitLogin.bind(this)({form: this.form}, (data) => {
                     this.message = data.resultData.resultMsg
                     console.log(this.message)
@@ -57,13 +41,12 @@
 </script>
 <style scoped>
     #login{
-        width: 300px;
         margin: 0 auto;
+        justify-content:center;
+        align-items:center;
     }
-    #login .rememberMe{
-        text-align: left;
-    }
-    #login .rememberMe .mu-checkbox{
-        margin-left: 20px;
+    #login .button-group{
+        flex-direction:row;
+        justify-content:space-around;
     }
 </style>

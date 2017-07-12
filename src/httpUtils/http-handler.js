@@ -1,5 +1,5 @@
 const stream = weex.requireModule('stream')
-const baseURL = 'http://localhost:8080'
+const baseURL = 'http://192.168.50.59:8080'
 import responseHandler from './response-handler'
 export default {
   get (url, params, success, fail, makeData) {
